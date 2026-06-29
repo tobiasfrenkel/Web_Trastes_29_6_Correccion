@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRASTES | Escuela de Lutheria</title>
+  <meta name="description" content="TRASTES es una escuela de lutheria premium para aprender a construir tu propia guitarra.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <!-- Encabezado editorial fijo: marca minima, navegacion horizontal y lectura suiza. -->
+  <header class="site-header" data-reveal>
+    <a class="brand" href="#inicio" aria-label="TRASTES inicio">
+      <img src="./assets/icons/TRASTES.png" alt="TRASTES">
+    </a>
+    <nav class="main-nav" aria-label="Secciones principales">
+      <a href="#inicio">Inicio</a>
+      <a href="#sobre-nosotros">Sobre nosotros</a>
+      <a href="#cursos">Nuestros cursos</a>
+      <a href="#componentes">Componentes</a>
+      <a href="#recorrido">Recorrido</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <!-- 1. Hero editorial: respeta el primer bloque del wireframe con titular gigante, bajada, CTA e imagen/video principal. -->
+    <section class="hero section-rule" aria-labelledby="hero-title">
+      <div class="eyebrow-row" data-reveal>
+        <span>Lutheria contemporanea / Hecha a mano / En Buenos Aires</span>
+      </div>
+      <div class="hero-title-wrap" data-reveal>
+        <h1 id="hero-title" aria-label="CONSTRUI TU PROPIA GUITARRA Y DEJA TU HUELLA EN TU INSTRUMENTO">
+          <span class="hero-title-line hero-title-line-one">
+            <span>CONSTRUI TU PROPIA</span>
+            <span>GUITARRA</span>
+          </span>
+          <span class="hero-title-line hero-title-line-two">
+            <span>&amp;</span>
+            <span>DEJA TU HUELLA</span>
+          </span>
+          <span class="hero-title-line hero-title-line-three">
+            <span class="hero-title-note">Cursos y acompanamiento para que transformes materiales nobles en una guitarra unica, construida con tus propias manos.</span>
+            <span>EN TU INSTRUMENTO</span>
+          </span>
+        </h1>
+      </div>
+      <figure class="hero-media" data-reveal>
+        <img src="./assets/images/hero-lutheria-placeholder.svg" >
+      </figure>
+    </section>
+
+    <!-- 2. Sobre nosotros: bloque humano y artesanal con gran frase editorial. -->
+    <section id="sobre-nosotros" class="about section-pad" aria-labelledby="about-title">
+      <div class="section-kicker" data-reveal>
+        <span>Sobre nosotros</span>
+        <img src="./assets/icons/flecha.svg" alt="" aria-hidden="true" class="kicker-arrow">
+      </div>
+      <h2 id="about-title" class="statement" data-reveal>
+        <span class="statement-line">Construimos instrumentos</span>
+        <span class="statement-line">únicos donde la madera, el</span>
+        <span class="statement-line">tiempo y el sonido dialogan.</span>
+      </h2>
+      <div class="floating-gallery" aria-label="Postales del taller" data-reveal>
+        <img class="float-card card-a" src="./assets/images/workshop-card-01.png" alt="Placeholder de herramientas del taller">
+        <img class="float-card card-b" src="./assets/images/workshop-card-02.png" alt="Placeholder de detalle de madera">
+        <img class="float-card card-c" src="./assets/images/workshop-card-03.png" alt="Placeholder de luthier trabajando">
+        <img class="float-card card-d" src="./assets/images/workshop-card-04.png" alt="Placeholder de guitarra clasica">
+        <img class="float-card card-e" src="./assets/images/workshop-card-05.png" alt="Placeholder de estanteria de maderas">
+      </div>
+    </section>
+
+    <!-- 3. Cards de presentacion: introduccion al aprendizaje y metricas de confianza. -->
+    <section class="intro-cards section-pad grid-two" aria-label="Presentacion de la escuela">
+      <article class="intro-text" data-reveal>
+        <h2>Aprender lutheria es mucho mas que construir una guitarra.</h2>
+        <p>Transmitimos años de oficio, herramientas reales y procesos que convierten la curiosidad en conocimiento aplicado.</p>
+        <a class="btn btn-dark" href="#cursos">Conoce nuestros cursos</a>
+      </article>
+      <div class="stats-grid" data-reveal>
+        <article>
+          <strong>15+</strong>
+          <span>Años de experiencia</span>
+          <p>Formando personas y construyendo instrumentos de manera artesanal.</p>
+        </article>
+        <article>
+          <strong>100%</strong>
+          <span>Practica real</span>
+          <p>Aprendes trabajando sobre materiales, herramientas e instrumentos.</p>
+        </article>
+        <article>
+          <strong>1 a 1</strong>
+          <span>Acompañamiento</span>
+          <p>Seguimiento personalizado durante todo el proceso de aprendizaje.</p>
+        </article>
+        <article>
+          <strong>300+</strong>
+          <span>Alumnos formados</span>
+          <p>Personas que comenzaron desde cero y hoy siguen creando.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. Video ancho: pausa cinematografica de taller, fiel al bloque horizontal del wireframe. -->
+    <section class="wide-video" aria-label="Video del taller" data-reveal>
+      <div class="video-shell">
+        <video class="video-placeholder" poster="./assets/images/video-wide-poster.svg" muted playsinline loop preload="metadata" aria-label="Video del taller" tabindex="-1">
+          <source src="./assets/videos/Video-Luthier.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento de video.
+        </video>
+        <div class="video-overlay">
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Cursos con interaccion hover: tres programas con tarjetas verticales y estado activo. -->
+    <section id="cursos" class="courses section-pad" aria-labelledby="courses-title">
+      <div class="section-kicker" data-reveal>
+        <span>Nuestros cursos</span>
+        <img src="./assets/icons/flecha.svg" alt="" aria-hidden="true" class="kicker-arrow">
+      </div>
+      <div class="courses-layout">
+        <aside class="course-menu" data-reveal>
+          <a href="#course-01">Crear</a>
+          <a href="#course-02">Aprender</a>
+          <a href="#course-03">Construir</a>
+          <button class="btn btn-dark" type="button">Reservar lugar</button>
+        </aside>
+        <div class="courses-content">
+          <p class="overline" data-reveal>El lujo del tiempo bien empleado</p>
+          <h2 id="courses-title" class="sr-only">Cursos de lutheria</h2>
+          <div class="course-cards" data-reveal>
+            <article id="course-01" class="course-card is-active" data-course="0">
+              <span class="course-number">01</span>
+              <h3>Primeras Resonancias</h3>
+              <p>Introduccion al oficio, anatomia del instrumento y criterio sonoro.</p>
+              <ul>
+                <li>4 meses de duracion</li>
+                <li>Una experiencia premium</li>
+              </ul>
+              <img src="./assets/images/course-01.svg" alt="Placeholder curso Primeras Resonancias">
+            </article>
+            <article id="course-02" class="course-card" data-course="1">
+              <span class="course-number">02</span>
+              <h3>Construccion Integral</h3>
+              <p>Proceso completo para construir una guitarra desde cero.</p>
+              <ul>
+                <li>12 meses de duracion</li>
+                <li>Proyecto y cuerpo del instrumento</li>
+              </ul>
+              <img src="./assets/images/course-02.svg" alt="Placeholder curso Construccion Integral">
+            </article>
+            <article id="course-03" class="course-card" data-course="2">
+              <span class="course-number">03</span>
+              <h3>Maestria de Taller</h3>
+              <p>Profundizacion en ajustes, terminaciones y reparacion fina.</p>
+              <ul>
+                <li>10 meses de duracion</li>
+                <li>Mentoria personalizada</li>
+              </ul>
+              <img src="./assets/images/course-03.svg" alt="Placeholder curso Maestria de Taller">
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Seccion interactiva de partes de la guitarra: lista clickeable y detalle visual. -->
+    <section id="componentes" class="guitar-parts section-pad" aria-labelledby="parts-title">
+      <div class="section-kicker" data-reveal>
+        <span>La estructura</span>
+        <img src="./assets/icons/flecha.svg" alt="" aria-hidden="true" class="kicker-arrow">
+      </div>
+      <div class="parts-grid">
+        <div class="parts-media" data-reveal>
+          <img id="parts-image" src="./assets/images/part-tapa.svg" alt="Placeholder de la tapa armonica">
+        </div>
+        <div class="parts-copy" data-reveal>
+          <p class="overline">Componentes principales de una guitarra</p>
+          <h2 id="parts-title" class="sr-only">Partes de la guitarra</h2>
+          <button class="part-item is-selected" type="button" data-image="./assets/images/part-tapa.svg" data-description="La tapa vibra, proyecta y define gran parte de la voz del instrumento.">La tapa armonica</button>
+          <button class="part-item" type="button" data-image="./assets/images/part-boca.svg" data-description="La boca respira el sonido y revela el equilibrio entre volumen, cuerpo y respuesta.">La boca</button>
+          <button class="part-item" type="button" data-image="./assets/images/part-puente.svg" data-description="Conecta las cuerdas con la madera y transmite cada vibracion.">El puente</button>
+          <button class="part-item" type="button" data-image="./assets/images/part-mastil.svg" data-description="El mastil define comodidad, tension y precision en cada nota.">El mastil</button>
+          <button class="part-item" type="button" data-image="./assets/images/part-cabeza.svg" data-description="La cabeza aloja la afinacion y completa la identidad visual del instrumento.">La cabeza</button>
+          <p id="parts-description" class="parts-description">La tapa vibra, proyecta y define gran parte de la voz del instrumento.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Bloque editorial de impacto: gran declaracion tipografica con degradado calido y lineas. -->
+    <section class="impact" aria-labelledby="impact-title">
+      <div class="impact-copy" data-reveal>
+        <p>Materiales seleccionados. Construccion artesanal. Ajuste personalizado.</p>
+        <h2 id="impact-title">Construida para durar toda la vida</h2>
+        <span>Conecta las cuerdas con la madera y transmite cada vibracion.</span>
+      </div>
+    </section>
+
+    <!-- 8. Beneficios o valores diferenciales: lista horizontal con lineas de lectura. -->
+    <section class="values" aria-label="Valores diferenciales">
+      <article data-reveal>
+        <span>Instrumento pensado para desarrollar pertenencia.</span>
+        <strong>Legado duradero</strong>
+      </article>
+      <article data-reveal>
+        <span>Un caracter unico en cada veta, acabado y decision.</span>
+        <strong>Identidad sonora</strong>
+      </article>
+      <article data-reveal>
+        <span>Maderas seleccionadas por calidez y estabilidad.</span>
+        <strong>Materia prima</strong>
+      </article>
+    </section>
+
+    <!-- 9. Galeria fotografica: mosaico editorial de taller y recorrido. -->
+    <section id="recorrido" class="gallery section-pad" aria-labelledby="gallery-title">
+      <div class="section-kicker" data-reveal>
+        <span>Nuestra filosofia</span>
+        <span aria-hidden="true">â†</span>
+      </div>
+      <div class="gallery-heading" data-reveal>
+        <h2 id="gallery-title">Detras de cada guitarra hay un recorrido.</h2>
+        <p>Conoce cada etapa.</p>
+      </div>
+      <div class="gallery-grid" data-reveal>
+        <img src="./assets/images/gallery-01.svg" alt="Placeholder fotografia del taller">
+        <img src="./assets/images/gallery-02.svg" alt="Placeholder fotografia de herramientas">
+        <img src="./assets/images/gallery-03.svg" alt="Placeholder fotografia de luthier trabajando">
+        <img src="./assets/images/gallery-04.svg" alt="Placeholder fotografia de ventana del taller">
+        <img src="./assets/images/gallery-05.svg" alt="Placeholder fotografia de maderas">
+      </div>
+    </section>
+
+    <!-- 10. Franja animada de palabras: movimiento continuo y artesanal, como en el wireframe. -->
+    <section class="word-marquee" aria-label="Palabras clave">
+      <div class="marquee-track">
+        <span>Escuchar</span>
+        <span>Construir</span>
+        <span>Aprender</span>
+        <span>Experimentar</span>
+        <span>Tocar</span>
+        <span>Compartir</span>
+        <span>Crear</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- 11. Contacto y footer: cierre negro, CTA amplio y datos de contacto. -->
+  <footer id="contacto" class="site-footer">
+    <div class="footer-top" data-reveal>
+      <img src="./assets/icons/trastes-logo-light.svg" alt="TRASTES">
+      <address>
+        <a href="mailto:hola@trastes.com">hola@trastes.com</a>
+        <span>+54 11 5555 1801</span>
+        <span>Buenos Aires, Argentina</span>
+      </address>
+    </div>
+    <div class="footer-cta" data-reveal>
+      <p>Empeza cuando quieras.</p>
+      <a href="mailto:hola@trastes.com">
+        <span>Iniciar recorrido</span>
+        <strong aria-hidden="true">â†—</strong>
+      </a>
+    </div>
+  </footer>
+
+  <script src="./js/scripts.js"></script>
+</body>
+</html>
+
