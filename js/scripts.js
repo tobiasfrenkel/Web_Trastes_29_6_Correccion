@@ -1,6 +1,7 @@
 // Interacciones generales: reveal editorial, hover de cursos, partes de guitarra y marquee continuo.
 document.addEventListener("DOMContentLoaded", () => {
-  // Revela bloques al entrar en pantalla para mantener una lectura pausada.
+
+  // Revela bloques al entrar en pantalla
   const revealItems = document.querySelectorAll("[data-reveal]");
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -13,8 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   revealItems.forEach((item) => revealObserver.observe(item));
 
+
+  // =========================
+  // STATEMENT FILL ANIMATION
+  // =========================
   const fillStatements = document.querySelectorAll(".statement");
+
   if (fillStatements.length > 0) {
+
     const wrapTextContent = (container, text) => {
       text.split(/(\s+)/).forEach((part) => {
         if (/^\s+$/.test(part)) {
@@ -24,12 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const wordSpan = document.createElement("span");
         wordSpan.className = "statement-word";
+
         part.split("").forEach((char) => {
           const span = document.createElement("span");
           span.className = "statement-char";
           span.textContent = char;
           wordSpan.appendChild(span);
         });
+
         container.appendChild(wordSpan);
       });
     };
@@ -65,9 +74,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const chars = statement.querySelectorAll(".statement-char");
         const rect = statement.getBoundingClientRect();
         const winHeight = window.innerHeight;
+
         const start = winHeight * 0.95;
         const end = winHeight * 0.25;
-        const progress = Math.min(Math.max((start - rect.top) / (start - end), 0), 1);
+
+        const progress = Math.min(
+          Math.max((start - rect.top) / (start - end), 0),
+          1
+        );
+
         const fillCount = Math.round(progress * chars.length);
 
         chars.forEach((char, index) => {
@@ -81,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     let ticking = false;
+
     const onScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
@@ -96,54 +112,139 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", updateFill);
   }
 
-  // Cursos: la tarjeta activa cambia con hover y foco, manteniendo siempre un programa destacado.
+
+  // =========================
+  // COURSE HOVER VIDEOS
+  // =========================
   const courseCards = document.querySelectorAll(".course-card");
+
   courseCards.forEach((card) => {
+    const video = card.querySelector(".course-video");
+
     const activate = () => {
-      courseCards.forEach((item) => item.classList.remove("is-active"));
+
+      courseCards.forEach((item) => {
+        item.classList.remove("is-active");
+
+        const otherVideo = item.querySelector(".course-video");
+        if (otherVideo) {
+          otherVideo.pause();
+          otherVideo.currentTime = 0;
+        }
+      });
+
       card.classList.add("is-active");
+
+      if (video) {
+        video.currentTime = 0;
+        video.play();
+      }
     };
 
     card.addEventListener("mouseenter", activate);
     card.addEventListener("focusin", activate);
   });
 
-  // Partes de guitarra: cada item actualiza imagen placeholder y descripcion.
-  const partButtons = document.querySelectorAll(".part-item");
+
+  // =========================
+  // PARTES DE GUITARRA
+  // =========================
+  const partBlocks = document.querySelectorAll(".part-block");
   const partsImage = document.querySelector("#parts-image");
-  const partsDescription = document.querySelector("#parts-description");
 
-  partButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      partButtons.forEach((item) => item.classList.remove("is-selected"));
-      button.classList.add("is-selected");
+  function activateBlock(block) {
+    if (!partsImage) return;
+    if (block.classList.contains("is-selected")) return;
 
+    partBlocks.forEach(item => item.classList.remove("is-selected"));
+    block.classList.add("is-selected");
+
+    const button = block.querySelector(".part-item");
+
+    partsImage.classList.remove("is-visible");
+
+    setTimeout(() => {
       partsImage.src = button.dataset.image;
-      partsImage.alt = `Placeholder de ${button.textContent.trim()}`;
-      partsDescription.textContent = button.dataset.description;
+      partsImage.alt = button.textContent.trim();
+      partsImage.classList.add("is-visible");
+    }, 180);
+  }
+
+  partBlocks.forEach((block) => {
+    const button = block.querySelector(".part-item");
+
+    button.addEventListener("click", () => {
+      activateBlock(block);
     });
   });
 
-  // Marquee: duplica el contenido para lograr un loop visual sin salto.
+  if (partsImage) {
+    partsImage.classList.add("is-visible");
+  }
+
+  const impact = document.querySelector(".impact");
+
+  if (impact) {
+
+    let targetX = 50;
+    let targetY = 50;
+
+    let currentX = 50;
+    let currentY = 50;
+
+    let offsetX = 0;
+    let offsetY = 0;
+
+    impact.addEventListener("mousemove", (e) => {
+      const rect = impact.getBoundingClientRect();
+
+      targetX = ((e.clientX - rect.left) / rect.width) * 100;
+      targetY = ((e.clientY - rect.top) / rect.height) * 100;
+
+      const dx = (e.clientX - rect.left - rect.width / 2) * 0.08;
+      const dy = (e.clientY - rect.top - rect.height / 2) * 0.08;
+
+      offsetX = dx;
+      offsetY = dy;
+    });
+
+    function animate() {
+      currentX += (targetX - currentX) * 0.06;
+      currentY += (targetY - currentY) * 0.06;
+
+      offsetX *= 0.92;
+      offsetY *= 0.92;
+
+      impact.style.setProperty("--x", currentX + "%");
+      impact.style.setProperty("--y", currentY + "%");
+
+      impact.style.setProperty("--dx", offsetX);
+      impact.style.setProperty("--dy", offsetY);
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  }
+
+
   const marquee = document.querySelector(".marquee-track");
   if (marquee) {
     marquee.innerHTML += marquee.innerHTML;
   }
 
-  // Autoplay / pause video when in view (requires muted for autoplay to work reliably)
+
   const workshopVideo = document.querySelector('.video-placeholder');
+
   if (workshopVideo) {
-    // ensure muted and loop are set
     workshopVideo.muted = true;
     workshopVideo.loop = true;
-      // hide native controls and make non-focusable to avoid showing playback UI
-      workshopVideo.controls = false;
-      workshopVideo.setAttribute('tabindex', '-1');
+    workshopVideo.controls = false;
+    workshopVideo.setAttribute('tabindex', '-1');
 
     const playObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-          // try to play; play() returns a promise
           const p = workshopVideo.play();
           if (p && typeof p.catch === 'function') p.catch(() => {});
         } else {
@@ -154,4 +255,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     playObserver.observe(workshopVideo);
   }
+
 });
